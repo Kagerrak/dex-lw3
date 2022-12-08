@@ -117,8 +117,8 @@ contract Exchange is ERC20 {
         uint256 inputAmount,
         uint256 inputReserve,
         uint256 outputReserve
-    ) public payable returns (uint256) {
-        require(inputReserve > 0 && outputReserve > 0);
+    ) public pure returns (uint256) {
+        require(inputReserve > 0 && outputReserve > 0, "invalid reserves");
         // We are charging a fee of 1%
         // Inout amount with fee = (input amount - (1*(input amount)/100)) = ((input amount)*99)/100
         uint256 inputAmountWithFee = inputAmount * 99;
